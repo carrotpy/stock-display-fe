@@ -3,16 +3,18 @@ import React from 'react';
 import  { useState } from 'react';
 import Addbutton from './Addproduct';
 import { useNavigate } from "react-router-dom";
+import TableData from './TableContent'
 
 const MainTable=()=>{
     const [isVisible, setIsVisible] = useState(false);
     const navigate = useNavigate();
     return(
-<section class="bg-gray-50 dark:bg-gray-900 h-screen flex items-center">
-  <div class="max-w-screen-xl px-4 mx-auto lg:px-12 w-full">
+  
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+  <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
     {/* <!-- Start coding here --> */};
-    <div class="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
-      <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
+    <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+      <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div class="w-full md:w-1/2">
           <form class="flex items-center">
             <label for="simple-search" class="sr-only">Search</label>
@@ -51,6 +53,7 @@ const MainTable=()=>{
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
               </svg>
             </button>
+            
             {/* <!-- Dropdown menu -->;
             <div id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
               <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
@@ -92,7 +95,9 @@ const MainTable=()=>{
       </div>
     </div>
   </div>
+  <TableData/>
 </section>
+
     );
     
 
