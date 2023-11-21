@@ -58,38 +58,38 @@ const  Addbutton =(props)=>
             <form onSubmit={submit}>
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                        <input type="text" name="postDataApi[Name]" id="name"  onChange={e=> setpostDataApi({ ...postDataApi, Name: e.target.value })} value={postDataApi.name} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required=""/>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name*</label>
+                        <input type="text" name="postDataApi[Name]" id="name"  onChange={e=> setpostDataApi({ ...postDataApi, Name: e.target.value })} value={postDataApi.name} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required={true}/>
                     </div>
                     <div>
-                        <label for="tile_type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tile Type</label>
-                        <input type="text" name="postDataApi[tile_type]" id="tile_type" onChange={e=> setpostDataApi({ ...postDataApi, tile_type: e.target.value })} value={postDataApi.tile_type} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product brand" required=""/>
+                        <label for="tile_type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tile Type*</label>
+                        <input type="text" name="postDataApi[tile_type]" id="tile_type" onChange={e=> setpostDataApi({ ...postDataApi, tile_type: e.target.value })} value={postDataApi.tile_type} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product brand" required={true}/>
                     </div>
                     <div>
-                        <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company</label>
-                        <input type="text" name="postDataApi[company]" id="company" onChange={e=> setpostDataApi({ ...postDataApi, company: e.target.value })} value={postDataApi.company} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product brand" required=""/>
+                        <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company*</label>
+                        <input type="text" name="postDataApi[company]" id="company" onChange={e=> setpostDataApi({ ...postDataApi, company: e.target.value })} value={postDataApi.company} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product brand" required={true}/>
                     </div>
                     <div>
-                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand</label>
-                        <select id="brand"  onChange={e=> setpostDataApi({ ...postDataApi, brand: e.target.value })} value={postDataApi.brand} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">Select brand</option>
-                            <option value="TV">TV/Monitors</option>
+                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" required={true}>Brand *</label>
+                        <select id="brand"  onChange={e=> setpostDataApi({ ...postDataApi, brand: e.target.value })} value={postDataApi.brand} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required={true}>
+                            <option selected="" required={true}>Select brand</option>
+                            <option value="TV" required={true}>TV/Monitors</option>
                             <option value="PC">PC</option>
                             <option value="GA">Gaming/Console</option>
                             <option value="PH">Phones</option>
                         </select>
                     </div>
                     <div>
-                        <label for="company_price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company price</label>
-                        <input type="number" name="postDataApi[company_price]" id="company_price" onChange={e=> setpostDataApi({ ...postDataApi, company_price: e.target.value })} value={postDataApi.company_price} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required=""/>
+                        <label for="company_price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company price*</label>
+                        <input type="number"  name="postDataApi[company_price]" id="company_price" onChange={e=> setpostDataApi({ ...postDataApi, company_price: e.target.value })} value={postDataApi.company_price} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required={true}/>
                     </div>
                     <div>
-                        <label for="display_price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Display price</label>
-                        <input type="number" name="postDataApi[display_price]" id="display_price" onChange={e=> setpostDataApi({ ...postDataApi, display_price: e.target.value })} value={postDataApi.display_price} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required=""/>
+                        <label for="display_price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Display price*</label>
+                        <input type="number" name="postDataApi[display_price]" id="display_price" onChange={e=> setpostDataApi({ ...postDataApi, display_price: e.target.value })} value={postDataApi.display_price} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required={true}/>
                     </div>
                     <div>
-                        <label for="place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Place</label>
-                        <input type="text" name="postDataApi[place]" id="price" onChange={e=> setpostDataApi({ ...postDataApi, place: e.target.value })} value={postDataApi.place} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Place" required=""/>
+                        <label for="place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Place*</label>
+                        <input type="text" name="postDataApi[place]" id="price" onChange={e=> setpostDataApi({ ...postDataApi, place: e.target.value })} value={postDataApi.place} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Place" required={true}/>
                     </div>
                     
                     
