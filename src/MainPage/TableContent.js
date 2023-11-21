@@ -7,8 +7,38 @@ const  TableData =(props)=>
 {  
     const [postDataApi, setpostDataApi] = useState('');
     const [getDataApi, setgetData] = useState([]);
-    const [loading, setLoading] = useState(false)
-    
+    const [deleteData, setdeleteData] = useState([]);
+    const [loading, setLoading] = useState('')
+    const [clickable, setClickable] = useState(false)
+    const navigate = useNavigate();
+    const databin=(e,info)=>{
+
+        setLoading(true);
+        // `http://localhost:8080/bin/?name=${info.Name}`
+            fetch(`http://localhost:8080/bin/?name=${info}`, {
+              method: 'GET',
+            })
+              .then(response => response.json())
+                .then(json => {
+                    setdeleteData(json)
+                    setLoading(false);
+                    if ((json['status']=='success')){
+                        alert(`successfullly deleted ${info}`)
+                        window.location.reload(false);
+
+                        
+                    }
+                    else{
+                        alert('Un expected issue please retry')
+                    }
+                    
+                
+                    
+                })
+                
+              
+
+    }
     
     const DisplayData=getDataApi.map(
             (info)=>{
@@ -42,23 +72,29 @@ const  TableData =(props)=>
                     {info.place}
                 </td>
                 <td class="flex items-center px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                    <a href='#'class="font-medium text-blue-600 dark:text-blue-500 hover:underline" id={info.Name}>Edit</a>
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"id={info.Name}  onClick={(e)=>databin(e,info.Name)}>Remove</a>
+                    
                 </td>
+                
             </tr>
                 )
+                
             }
+            
         )
         
     
     useEffect (()=> {
         setLoading(true)
+        setClickable(true)
         fetch('http://localhost:8080/getData/', {
           method: 'GET',
         })
           .then(response => response.json())
             .then(json => {
                 setgetData(json)
+                
             })
           
         //   
@@ -67,6 +103,7 @@ const  TableData =(props)=>
     {if (setLoading!=true){
         console.log(getDataApi)}
     }
+   
     return(    
 <div class="overflow-x-auto">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -108,6 +145,7 @@ const  TableData =(props)=>
         
            {/* {submit()} */}
            {DisplayData}
+          
            
         </tbody>
     </table>

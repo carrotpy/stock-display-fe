@@ -34,7 +34,7 @@ const  Addbutton =(props)=>
         }
           })
         
-          navigate('/')
+    //    navigate('/')
       }
     return(
 
