@@ -15,7 +15,7 @@ const  TableData =(props)=>
 
         setLoading(true);
         // `http://localhost:8080/bin/?name=${info.Name}`
-            fetch(`http://localhost:8080/bin/?name=${info}`, {
+            fetch(`https://stockdisplaybe2-mp6mtcgm.b4a.run/bin/?name=${info}`, {
               method: 'GET',
             })
               .then(response => response.json())
@@ -88,14 +88,20 @@ const  TableData =(props)=>
     useEffect (()=> {
         setLoading(true)
         setClickable(true)
-        fetch('http://localhost:8080/getData/', {
+        try {
+            fetch('https://stockdisplaybe2-mp6mtcgm.b4a.run/getData/', {
           method: 'GET',
         })
           .then(response => response.json())
             .then(json => {
-                setgetData(json)
-                
+                setgetData(json)   
             })
+            JSON.stringify(json)
+        } catch (error) {
+            setgetData([{}])
+            
+        }
+        
           
         //   
       } ,[])

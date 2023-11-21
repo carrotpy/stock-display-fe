@@ -16,7 +16,7 @@ const  Addbutton =(props)=>
     const submit =e => {
         e.preventDefault()
         setloader(true)
-        fetch('https://stockdisplaybe-9kakz3s8.b4a.run/addProduct/', {
+        fetch('https://stockdisplaybe2-mp6mtcgm.b4a.run/addProduct/', {
           method: 'POST',
           body: JSON.stringify(postDataApi),
           headers: { 'Content-Type': 'application/json' },
@@ -26,7 +26,7 @@ const  Addbutton =(props)=>
             setgetData(json)
             setloader(false)
             //   .then(json => setpostDataApi(json.postDataApi))
-        if ((loader == false) && (json['status']=='success')){
+        if ((json['status']=='success')){
             alert('successfullly added the product',getDataApi['status'])
         }
         else{
@@ -34,7 +34,7 @@ const  Addbutton =(props)=>
         }
           })
         
-    //    navigate('/')
+       navigate('/')
       }
     return(
 

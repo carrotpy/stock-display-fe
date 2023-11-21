@@ -3,7 +3,7 @@ import React from 'react';
 import  { useState } from 'react';
 import Addbutton from './Addproduct';
 import { useNavigate } from "react-router-dom";
-import TableData from './TableContent'
+import TableData from './TableContent';
 
 const MainTable=()=>{
     const [isVisible, setIsVisible] = useState(false);
