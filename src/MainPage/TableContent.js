@@ -9,6 +9,8 @@ const TableData = (props) => {
   const [loading, setLoading] = useState("");
   const [clickable, setClickable] = useState(false);
   const navigate = useNavigate();
+  const write_permision =
+    window.localStorage.getItem("write") == "true" ? true : false;
   const databin = (e, info) => {
     setLoading(true);
     // `http://localhost:8080/bin/?name=${info.Name}`
@@ -99,7 +101,9 @@ const TableData = (props) => {
             </a>
             <a
               href="#"
-              class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
+              class={`font-medium text-red-600 dark:text-red-500 hover:underline ms-3 ${
+                write_permision ? "null" : "hidden"
+              }`}
               id={info.Name}
               onClick={(e) => databin(e, info.Name)}
             >
@@ -131,7 +135,13 @@ const TableData = (props) => {
   //
   {
     if (setLoading != true) {
-      console.log(getDataApi);
+      console.log(
+        String(
+          `font-medium text-red-600 dark:text-red-500 hover:underline ms-3 ${
+            write_permision ? "null" : "hidden"
+          }`
+        )
+      );
     }
   }
 

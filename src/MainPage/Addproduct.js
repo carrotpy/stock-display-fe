@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import FooterBar from "./Footer";
 
 const Addbutton = (props) => {
   const [postDataApi, setpostDataApi] = useState("");
@@ -246,6 +247,7 @@ const Addbutton = (props) => {
           </form>
         </div>
       </div>
+      <FooterBar />
     </div>
   );
 };

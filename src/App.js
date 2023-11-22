@@ -5,14 +5,38 @@ import MainTable from "./MainPage/TableHeader";
 import Addbutton from "./MainPage/Addproduct";
 import Editbutton from "./MainPage/EditProduct";
 import Loginpage from "./MainPage/LoginPage";
+import RequireAuth from "./MainPage/Auth";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<MainTable />} />
-        <Route path="/1" element={<Addbutton />} />
-        <Route path="/editdata" element={<Editbutton />} />
+        <Route
+          path="/"
+          element={
+            <RequireAuth>
+              {" "}
+              <MainTable />{" "}
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/1"
+          element={
+            <RequireAuth>
+              {" "}
+              <Addbutton />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/editdata"
+          element={
+            <RequireAuth>
+              <Editbutton />
+            </RequireAuth>
+          }
+        />
         <Route path="/login" element={<Loginpage />} />
       </Routes>
     </div>

@@ -3,10 +3,14 @@ import { useState } from "react";
 import Addbutton from "./Addproduct";
 import { useNavigate } from "react-router-dom";
 import TableData from "./TableContent";
+import Dropdown from "./Dropdown";
+import FooterBar from "./Footer";
 
 const MainTable = () => {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
+  console.log(window.localStorage.getItem("authenticated"));
+
   return (
     <div>
       <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -25,13 +29,14 @@ const MainTable = () => {
           <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
               type="button"
-              class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              class="flex text-sm rounded-full md:me-0 float-right"
               id="user-menu-button"
-              aria-expanded="false"
-              data-dropdown-toggle="user-dropdown"
-              data-dropdown-placement="bottom"
+              onClick={() => {
+                setIsVisible(!isVisible);
+              }}
             >
               <span class="sr-only">Open user menu</span>
+              <Dropdown isVisible={isVisible} />
               <img
                 class="w-9 h-9"
                 src="https://img.icons8.com/emoji/47/rosette.png"
@@ -161,7 +166,9 @@ const MainTable = () => {
           </div> */}
         </div>
       </nav>
+
       <TableData />
+      <FooterBar />
     </div>
   );
 };

@@ -1,41 +1,40 @@
 import React, { useState } from "react";
 import validator from "validator";
-import { Navigate } from "react-router-dom";
-
+import { Navigate, useNavigate } from "react-router-dom";
+import FooterBar from "./Footer";
 // var passw
 var needToCheck = false;
 var needToCheckpas = false;
 
 const Login = () => {
+  window.localStorage.setItem("authenticated", false);
+  window.localStorage.removeItem("write");
   var [email, setEmail] = useState(" ");
   var [passw, setPassw] = useState(" ");
-  const submitThis = (e) => {
+  var [userData, setuserData] = useState("{}");
+  var [loading, setloading] = useState(false);
+  const navigate = useNavigate();
+  const submitThis = async (e) => {
     e.preventDefault();
 
-    if (needToCheck && needToCheckpas) {
+    if (needToCheck) {
       //need to add firebase authicator
-      const info = { email: email, passw: passw };
-      let validateResult = true;
-      document.cookie = `validate_email=${email}`;
-
-      if (validateResult === true) {
-        localStorage.setItem("authenticated", true);
-      }
-    } else {
-      localStorage.setItem("authenticated", false);
-      console.log("thapacreds");
+      const info = { username: email, Password: passw };
+      // //console.log(info);
+      let valid_data = await validateUser(info);
+      //console.log(userData);
     }
   };
   const emailvalidate = (value) => {
     // setEmail(value);
     if (validator.isEmail(value)) {
       setEmail(value);
-      // console.log(`email is ${value}`);
+      // //console.log(`email is ${value}`);
       needToCheck = true;
-      console.log(`email is ${value}   ${needToCheck}`);
+      //console.log(`email is ${value}   ${needToCheck}`);
     } else {
       needToCheck = false;
-      console.log(`bad email`);
+      //console.log(`bad email`);
     }
   };
   const passvalidate = (value) => {
@@ -43,12 +42,41 @@ const Login = () => {
     if (validator.isStrongPassword(value)) {
       setPassw(value);
       needToCheckpas = true;
-      console.log(`password is ${value}  ${needToCheckpas}`);
+      //console.log(`password is ${value}  ${needToCheckpas}`);
     } else {
       needToCheckpas = false;
-      console.log(`bad pass ${passw}`);
+      //console.log(`bad pass ${passw}`);
     }
   };
+  async function validateUser(info) {
+    fetch("http://localhost:8080/gatekeeper/", {
+      method: "POST",
+      body: JSON.stringify(info),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        setuserData(json);
+        setloading(false);
+        //   .then(json => setpostDataApi(json.postDataApi))
+        // //console.log(json);
+        if (json["authStatus"] === "success") {
+          //console.log(json);
+          document.cookie = `validate_email=${email}`;
+          localStorage.setItem("authenticated", true);
+          localStorage.setItem("write", json["write"]);
+          //console.log(userData);
+          navigate("/");
+          return true;
+        } else if (json["authStatus"] === "failed") {
+          localStorage.setItem("authenticated", false);
+          // //console.log("thapacreds");
+          //console.log(false);
+          window.location.reload(false);
+          return false;
+        }
+      });
+  }
 
   return (
     <>
@@ -82,7 +110,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-7 text-gray-900"
               >
                 Email address
               </label>
@@ -144,12 +172,11 @@ const Login = () => {
             <a
               href="#"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-            >
-              Start a 14 day free trial
-            </a>
+            ></a>
           </p>
         </div>
       </div>
+      <FooterBar />
     </>
   );
 };
