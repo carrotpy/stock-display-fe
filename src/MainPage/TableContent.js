@@ -98,7 +98,7 @@ const TableData = (props) => {
               Edit
             </a>
             <a
-              href="/editdata"
+              href="#"
               class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
               id={info.Name}
               onClick={(e) => databin(e, info.Name)}

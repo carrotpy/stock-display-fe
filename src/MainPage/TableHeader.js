@@ -33,13 +33,13 @@ const MainTable = () => {
             >
               <span class="sr-only">Open user menu</span>
               <img
-                class="w-8 h-8 rounded-full"
-                src="/docs/images/people/profile-picture-3.jpg"
+                class="w-9 h-9"
+                src="https://img.icons8.com/emoji/47/rosette.png"
                 alt="user photo"
               />
             </button>
             {/* <!-- Dropdown menu --> */}
-            <div
+            {/* <div
               class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
               id="user-dropdown"
             >
@@ -85,7 +85,7 @@ const MainTable = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <button
               data-collapse-toggle="navbar-user"
               type="button"
@@ -111,7 +111,7 @@ const MainTable = () => {
               </svg>
             </button>
           </div>
-          <div
+          {/* <div
             class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-user"
           >
@@ -158,7 +158,7 @@ const MainTable = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </nav>
       <TableData />
