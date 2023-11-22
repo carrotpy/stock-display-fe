@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const Addbutton = (props) => {
-  const [postDataApi, setpostDataApi] = useState("");
+const Editbutton = (info) => {
+  const [postDataApi, setpostDataApi] = useState(info);
   const [getDataApi, setgetData] = useState({});
   const [loader, setloader] = useState(true);
 
@@ -12,7 +12,7 @@ const Addbutton = (props) => {
   const submit = (e) => {
     e.preventDefault();
     setloader(true);
-    fetch("https://stockdisplaybe2-mp6mtcgm.b4a.run/addProduct/", {
+    fetch("http://localhost:8001/editdata/", {
       method: "POST",
       body: JSON.stringify(postDataApi),
       headers: { "Content-Type": "application/json" },
@@ -249,4 +249,4 @@ const Addbutton = (props) => {
     </div>
   );
 };
-export default Addbutton;
+export default Editbutton;

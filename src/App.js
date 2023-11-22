@@ -1,18 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import {Route,Routes} from "react-router"
-import MainTable from "./MainPage/TableHeader"
-import Addbutton from './MainPage/Addproduct';
+import logo from "./logo.svg";
+import "./App.css";
+import { Route, Routes } from "react-router";
+import MainTable from "./MainPage/TableHeader";
+import Addbutton from "./MainPage/Addproduct";
+import Editbutton from "./MainPage/EditProduct";
+import Loginpage from "./MainPage/LoginPage";
 
 function App() {
   return (
     <div>
-      
       <Routes>
-        <Route path='/' element={<MainTable />}/>
-        <Route path='/1' element={<Addbutton/>}/>
-        </Routes>
-      
+        <Route path="/" element={<MainTable />} />
+        <Route path="/1" element={<Addbutton />} />
+        <Route path="/editdata" element={<Editbutton />} />
+        <Route path="/login" element={<Loginpage />} />
+      </Routes>
     </div>
   );
 }
