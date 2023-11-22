@@ -49,7 +49,7 @@ const Login = () => {
     }
   };
   async function validateUser(info) {
-    fetch("http://localhost:8080/gatekeeper/", {
+    fetch("https://stockdisplaybe2-mp6mtcgm.b4a.run/gatekeeper/", {
       method: "POST",
       body: JSON.stringify(info),
       headers: { "Content-Type": "application/json" },
