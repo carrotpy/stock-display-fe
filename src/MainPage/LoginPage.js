@@ -38,18 +38,10 @@ const Login = () => {
     }
   };
   const passvalidate = (value) => {
-    // setPassw(value);
-    if (validator.isStrongPassword(value)) {
-      setPassw(value);
-      needToCheckpas = true;
-      //console.log(`password is ${value}  ${needToCheckpas}`);
-    } else {
-      needToCheckpas = false;
-      //console.log(`bad pass ${passw}`);
-    }
+    setPassw(value);
   };
   async function validateUser(info) {
-    fetch("https://stockdisplaybe2-mp6mtcgm.b4a.run/gatekeeper/", {
+    fetch("https://stockdisplaybe2-mp6mtcgm.b4a.run/gatekeeper_gauth/", {
       method: "POST",
       body: JSON.stringify(info),
       headers: { "Content-Type": "application/json" },
@@ -62,7 +54,8 @@ const Login = () => {
         // //console.log(json);
         if (json["authStatus"] === "success") {
           //console.log(json);
-          document.cookie = `validate_email=${email}`;
+          document.cookie = `aeceramics_uemail=${email}`;
+          document.cookie = `aeceramics_uuser=${json["username"]}`;
           localStorage.setItem("authenticated", true);
           localStorage.setItem("write", json["write"]);
           //console.log(userData);
@@ -73,6 +66,13 @@ const Login = () => {
           // //console.log("thapacreds");
           //console.log(false);
           window.location.reload(false);
+          return false;
+        } else if (json["authStatus"] === "Wrong credentials") {
+          localStorage.setItem("authenticated", false);
+          // //console.log("thapacreds");
+          //console.log(false);
+          alert("Please enter correct email and password");
+          // window.location.reload(false);
           return false;
         }
       });

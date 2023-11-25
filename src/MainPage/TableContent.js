@@ -13,8 +13,8 @@ const TableData = (props) => {
     window.localStorage.getItem("write") == "true" ? true : false;
   const databin = (e, info) => {
     setLoading(true);
-    // `http://localhost:8080/bin/?name=${info.Name}`
-    fetch(`https://stockdisplaybe2-mp6mtcgm.b4a.run/bin/?name=${info}`, {
+    // `https://stockdisplaybe2-mp6mtcgm.b4a.run/bin/?name=${info.Name}`
+    fetch(`https://stockdisplaybe2-mp6mtcgm.b4a.run/bin_gdb/?name=${info}`, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -31,8 +31,8 @@ const TableData = (props) => {
   };
   const dataedit = (e, info) => {
     setLoading(true);
-    // `http://localhost:8080/bin/?name=${info.Name}`
-    fetch(`https://stockdisplaybe2-mp6mtcgm.b4a.run/bin/?name=${info}`, {
+    // `https://stockdisplaybe2-mp6mtcgm.b4a.run/bin/?name=${info.Name}`
+    fetch(`https://stockdisplaybe2-mp6mtcgm.b4a.run/bin_gbd/?name=${info}`, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -118,7 +118,7 @@ const TableData = (props) => {
     setLoading(true);
     setClickable(true);
     try {
-      fetch("https://stockdisplaybe2-mp6mtcgm.b4a.run/getData/", {
+      fetch("https://stockdisplaybe2-mp6mtcgm.b4a.run/getData_gdb/", {
         method: "GET",
       })
         .then((response) => response.json())

@@ -13,7 +13,7 @@ const Addbutton = (props) => {
   const submit = (e) => {
     e.preventDefault();
     setloader(true);
-    fetch("https://stockdisplaybe2-mp6mtcgm.b4a.run/addProduct/", {
+    fetch("https://stockdisplaybe2-mp6mtcgm.b4a.run/addProduct_gdb/", {
       method: "POST",
       body: JSON.stringify(postDataApi),
       headers: { "Content-Type": "application/json" },
