@@ -10,7 +10,7 @@ const TableData = (props) => {
   const [clickable, setClickable] = useState(false);
   const navigate = useNavigate();
   const write_permision =
-    window.localStorage.getItem("write") == "true" ? true : false;
+    window.localStorage.getItem("write") === "true" ? true : false;
   const databin = (e, info) => {
     setLoading(true);
     // `https://stockdisplaybe2-mp6mtcgm.b4a.run/bin/?name=${info.Name}`
@@ -21,7 +21,7 @@ const TableData = (props) => {
       .then((json) => {
         // setdeleteData(json);
         setLoading(false);
-        if (json["status"] == "success") {
+        if (json["status"] === "success") {
           alert(`successfullly deleted ${info}`);
           window.location.reload(false);
         } else {
@@ -39,7 +39,7 @@ const TableData = (props) => {
       .then((json) => {
         // setdeleteData(json);
         setLoading(false);
-        if (json["status"] == "success") {
+        if (json["status"] === "success") {
           alert(`successfullly deleted ${info}`);
           window.location.reload(false);
         } else {
@@ -133,17 +133,17 @@ const TableData = (props) => {
     //
   }, []);
   //
-  {
-    if (setLoading != true) {
-      console.log(
-        String(
-          `font-medium text-red-600 dark:text-red-500 hover:underline ms-3 ${
-            write_permision ? "null" : "hidden"
-          }`
-        )
-      );
-    }
-  }
+  // {
+  //   if (setLoading !== true) {
+  //     // console.log(
+  //     //   String(
+  //     //     `font-medium text-red-600 dark:text-red-500 hover:underline ms-3 ${
+  //     //       write_permision ? "null" : "hidden"
+  //     //     }`
+  //     //   )
+  //     // );
+  //   }
+  // }
 
   return (
     <section class="mx-auto max-w-screen-xl px-4 lg:px-0">
