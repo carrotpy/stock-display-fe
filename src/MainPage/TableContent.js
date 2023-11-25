@@ -146,7 +146,7 @@ const TableData = (props) => {
   // }
 
   return (
-    <section class="mx-auto max-w-screen-xl px-4 lg:px-0">
+    <section>
       <div class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 ">
         {/* <!-- Start coding here --> */}
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
@@ -187,20 +187,19 @@ const TableData = (props) => {
               <button
                 type="button"
                 onClick={() => navigate("/1")}
-                class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-primary-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800"
               >
                 {/* {isVisible && <Addbutton />} */}
                 <svg
-                  class="h-3.5 w-3.5 mr-2"
+                  class="h-5 w-5 mr-2"
                   fill="currentColor"
-                  viewbox="0 0 20 20"
+                  viewbox="0 0 0 20"
                   xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
                 >
                   <path
                     clip-rule="evenodd"
                     fill-rule="evenodd"
-                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                    d="M10 6a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                   />
                 </svg>
                 Add product

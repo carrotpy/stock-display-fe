@@ -26,7 +26,7 @@ const MainTable = () => {
               Aravindh Eshwar
             </span>
           </a>
-          <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse   rounded-lg focus:ring-10 focus:ring-green-300">
             <button
               type="button"
               class="flex text-sm rounded-full md:me-0 float-right"
@@ -39,7 +39,7 @@ const MainTable = () => {
               <Dropdown isVisible={isVisible} />
               <img
                 class="w-9 h-9"
-                src="https://img.icons8.com/emoji/47/rosette.png"
+                src="https://img.icons8.com/emoji/48/rabbit-face-emoji.png"
                 alt="user photo"
               />
             </button>

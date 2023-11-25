@@ -36,10 +36,10 @@ const Addbutton = (props) => {
   };
   return (
     // <!-- Main modal -->
-    <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-      <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 ">
+      <div class="w-full">
         {/* <!-- Modal content --> */}
-        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+        <div class="relative p-4 bg-white  shadow dark:bg-gray-800 sm:p-5">
           {/* <!-- Modal header --> */}
           <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -245,9 +245,9 @@ const Addbutton = (props) => {
               Add new product
             </button>
           </form>
+          <FooterBar />
         </div>
       </div>
-      <FooterBar />
     </div>
   );
 };
