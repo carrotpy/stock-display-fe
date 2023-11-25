@@ -65,7 +65,7 @@ const TableData = (props) => {
 
     .map((info) => {
       return (
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
           <td class="w-4 p-4">
             <div class="flex items-center">
               <input
@@ -146,11 +146,11 @@ const TableData = (props) => {
   // }
 
   return (
-    <section>
+    <section class="mx-auto max-w-screen-2xl px-2 lg:px-0">
       <div class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 ">
         {/* <!-- Start coding here --> */}
-        <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-          <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+        <div class="bg-white dark:bg-slate-800 relative shadow-md sm:rounded-lg overflow-hidden">
+          <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-5">
             <div class="w-full md:w-1/2">
               <form class="flex items-center">
                 <label for="simple-search" class="sr-only">

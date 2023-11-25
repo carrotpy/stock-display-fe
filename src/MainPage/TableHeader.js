@@ -9,12 +9,12 @@ import FooterBar from "./Footer";
 const MainTable = () => {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
-  console.log(window.localStorage.getItem("authenticated"));
+  // console.log(window.localStorage.getItem("authenticated"));
 
   return (
-    <div>
+    <div class="p-3">
       <nav class="bg-white border-gray-200 dark:bg-gray-900">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
           {/* <a href="https://www.flaticon.com/free-icons/sunflower" title="sunflower icons">Sunflower icons created by Umeicon - Flaticon</a> */}
           <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img
@@ -26,7 +26,7 @@ const MainTable = () => {
               Aravindh Eshwar
             </span>
           </a>
-          <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse   rounded-lg focus:ring-10 focus:ring-green-300">
+          <div class="flex items-center md:order-2 space-x-2 md:space-x-0 rtl:space-x-reverse   rounded-lg focus:ring-10 focus:ring-green-300">
             <button
               type="button"
               class="flex text-sm rounded-full md:me-0 float-right"
@@ -35,14 +35,27 @@ const MainTable = () => {
                 setIsVisible(!isVisible);
               }}
             >
-              <span class="sr-only">Open user menu</span>
-              <Dropdown isVisible={isVisible} />
               <img
                 class="w-9 h-9"
                 src="https://img.icons8.com/emoji/48/rabbit-face-emoji.png"
                 alt="user photo"
               />
+              <svg
+                class="w-5 h-5 ms-4"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 12 6"
+              >
+                <path
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
             </button>
+
             {/* <!-- Dropdown menu --> */}
             {/* <div
               class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
@@ -91,30 +104,28 @@ const MainTable = () => {
                 </li>
               </ul>
             </div> */}
-            <button
+            {/* <button
               data-collapse-toggle="navbar-user"
               type="button"
-              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-user"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:bg-gray-900 dark:focus:ring-gray-600"
               aria-expanded="false"
             >
               <span class="sr-only">Open main menu</span>
               <svg
-                class="w-5 h-5"
-                aria-hidden="true"
+                class="w-2.5 h-2.5 ms-2.5"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
-                viewBox="0 0 17 14"
+                viewBox="0 0 10 6"
               >
                 <path
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M1 1h15M1 7h15M1 13h15"
+                  d="m1 1 4 4 4-4"
                 />
               </svg>
-            </button>
+            </button> */}
           </div>
           {/* <div
             class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
@@ -166,6 +177,7 @@ const MainTable = () => {
           </div> */}
         </div>
       </nav>
+      <Dropdown isVisible={isVisible} />
 
       <TableData />
       <FooterBar />

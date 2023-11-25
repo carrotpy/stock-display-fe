@@ -37,18 +37,18 @@ const Addbutton = (props) => {
   return (
     // <!-- Main modal -->
     <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 ">
-      <div class="w-full">
+      <div class="relative  w-full max-w-4xl h-full md:h-auto">
         {/* <!-- Modal content --> */}
-        <div class="relative p-4 bg-white  shadow dark:bg-gray-800 sm:p-5">
+        <div class="relative p-4 bg-white  shadow dark:bg-gray-900 sm:p-5">
           {/* <!-- Modal header --> */}
           <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
               Add Product
             </h3>
             <button
               onClick={() => navigate("/")}
               type="button"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              class="text-gray-400 bg-transparent hover:bg-green-200 hover:text-green-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-green-600 dark:hover:text-white dark:text-white dark:bg-yellow-600"
               data-modal-toggle="defaultModal"
             >
               <svg
@@ -228,7 +228,7 @@ const Addbutton = (props) => {
             </div>
             <button
               type="submit"
-              class="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              class="text-white inline-flex items-center  hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-green-700 dark:focus:ring-primary-800"
             >
               <svg
                 class="mr-1 -ml-1 w-6 h-6"

@@ -3,10 +3,10 @@ import { Cookies } from "react-cookie";
 function Dropdown(props) {
   const cookies = new Cookies();
   return (
-    <div>
+    <div class="absolute top-relative right-5 z-10 mt-2 w-56 origin-top-middle rounded-lg dark:bg-gray-800 ">
       {props.isVisible ? (
         <div
-          class="z-50  my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 "
+          class="text-base bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-800 dark:divide-gray-600 overflow"
           id="user-dropdown"
         >
           <div class="px-4 py-3">
