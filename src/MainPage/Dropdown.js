@@ -11,10 +11,10 @@ function Dropdown(props) {
         >
           <div class="px-4 py-3">
             <span class="block text-sm text-gray-900 dark:text-white">
-              {cookies.get("aeceramics_uemail") || null}
+              {cookies.get("aeceramics_uuser") || null}
             </span>
             <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">
-              {cookies.get("aeceramics_uuser") || null}
+              {cookies.get("aeceramics_uemail") || null}
             </span>
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
