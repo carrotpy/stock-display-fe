@@ -12,52 +12,53 @@ const MainTable = () => {
   // console.log(window.localStorage.getItem("authenticated"));
 
   return (
-    <div class="p-3">
-      <nav class="bg-white border-gray-200 dark:bg-gray-900">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
-          {/* <a href="https://www.flaticon.com/free-icons/sunflower" title="sunflower icons">Sunflower icons created by Umeicon - Flaticon</a> */}
-          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img
-              src="https://img.icons8.com/emoji/47/rosette.png"
-              alt="rosette"
-              class="h-12"
-            />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Aravindh Eshwar
-            </span>
-          </a>
-          <div class="flex items-center md:order-2 space-x-2 md:space-x-0 rtl:space-x-reverse   rounded-lg focus:ring-10 focus:ring-green-300">
-            <button
-              type="button"
-              class="flex text-sm rounded-full md:me-0 float-right"
-              id="user-menu-button"
-              onClick={() => {
-                setIsVisible(!isVisible);
-              }}
-            >
+    <div>
+      <div class="p-3">
+        <nav class="bg-white border-gray-200 dark:bg-gray-900">
+          <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+            {/* <a href="https://www.flaticon.com/free-icons/sunflower" title="sunflower icons">Sunflower icons created by Umeicon - Flaticon</a> */}
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
               <img
-                class="w-9 h-9"
-                src="https://img.icons8.com/emoji/48/rabbit-face-emoji.png"
-                alt="user photo"
+                src="https://img.icons8.com/emoji/47/rosette.png"
+                alt="rosette"
+                class="h-12"
               />
-              <svg
-                class="w-5 h-5 ms-4"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 12 6"
+              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                Aravindh Eshwar
+              </span>
+            </a>
+            <div class="flex items-center md:order-2 space-x-2 md:space-x-0 rtl:space-x-reverse   rounded-lg focus:ring-10 focus:ring-green-300">
+              <button
+                type="button"
+                class="flex text-sm rounded-full md:me-0 float-right"
+                id="user-menu-button"
+                onClick={() => {
+                  setIsVisible(!isVisible);
+                }}
               >
-                <path
-                  stroke="white"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1"
-                  d="m1 1 4 4 4-4"
+                <img
+                  class="w-9 h-9"
+                  src="https://img.icons8.com/emoji/48/rabbit-face-emoji.png"
+                  alt="user photo"
                 />
-              </svg>
-            </button>
+                <svg
+                  class="w-5 h-5 ms-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 12 6"
+                >
+                  <path
+                    stroke="white"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
 
-            {/* <!-- Dropdown menu --> */}
-            {/* <div
+              {/* <!-- Dropdown menu --> */}
+              {/* <div
               class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
               id="user-dropdown"
             >
@@ -104,7 +105,7 @@ const MainTable = () => {
                 </li>
               </ul>
             </div> */}
-            {/* <button
+              {/* <button
               data-collapse-toggle="navbar-user"
               type="button"
               class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:bg-gray-900 dark:focus:ring-gray-600"
@@ -126,8 +127,8 @@ const MainTable = () => {
                 />
               </svg>
             </button> */}
-          </div>
-          {/* <div
+            </div>
+            {/* <div
             class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-user"
           >
@@ -175,12 +176,12 @@ const MainTable = () => {
               </li>
             </ul>
           </div> */}
-        </div>
-      </nav>
-      <Dropdown isVisible={isVisible} />
-
-      <TableData />
-      <FooterBar />
+          </div>
+        </nav>
+        <Dropdown isVisible={isVisible} />
+        <TableData />
+        {/* <FooterBar /> */}
+      </div>
     </div>
   );
 };

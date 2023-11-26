@@ -36,7 +36,7 @@ const Addbutton = (props) => {
   };
   return (
     // <!-- Main modal -->
-    <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 ">
+    <div class="flex flex-col  items-center justify-between space-y-3 md:space-y-0 md:space-x-4 ">
       <div class="relative  w-full max-w-4xl h-full md:h-auto">
         {/* <!-- Modal content --> */}
         <div class="relative p-4 bg-white  shadow dark:bg-gray-900 sm:p-5">
@@ -245,7 +245,6 @@ const Addbutton = (props) => {
               Add new product
             </button>
           </form>
-          <FooterBar />
         </div>
       </div>
     </div>

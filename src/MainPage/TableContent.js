@@ -1,6 +1,7 @@
 import { json, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import JsonData from "./data.json";
+import FooterBar from "./Footer";
 
 const TableData = (props) => {
   //   const [postDataApi, setdeleteData] = useState("");
@@ -146,118 +147,121 @@ const TableData = (props) => {
   // }
 
   return (
-    <section class="mx-auto max-w-screen-2xl px-2 lg:px-0">
-      <div class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 ">
-        {/* <!-- Start coding here --> */}
-        <div class="bg-white dark:bg-slate-800 relative shadow-md sm:rounded-lg overflow-hidden">
-          <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-5">
-            <div class="w-full md:w-1/2">
-              <form class="flex items-center">
-                <label for="simple-search" class="sr-only">
-                  Search
-                </label>
-                <div class="relative w-full">
-                  <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg
-                      aria-hidden="true"
-                      class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                      fill="currentColor"
-                      viewbox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
+    <div>
+      <section class="mx-auto max-w-screen-2xl px-2 lg:px-0">
+        <div class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 ">
+          {/* <!-- Start coding here --> */}
+          <div class="bg-white dark:bg-slate-800 relative shadow-md sm:rounded-lg overflow-hidden">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-5">
+              <div class="w-full md:w-1/2">
+                <form class="flex items-center">
+                  <label for="simple-search" class="sr-only">
+                    Search
+                  </label>
+                  <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                      <svg
+                        aria-hidden="true"
+                        class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                        fill="currentColor"
+                        viewbox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      id="simple-search"
+                      class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      placeholder="Search"
+                      required=""
+                      onChange={(e) => setQuery(e.target.value)}
+                    />
                   </div>
-                  <input
-                    type="text"
-                    id="simple-search"
-                    class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="Search"
-                    required=""
-                    onChange={(e) => setQuery(e.target.value)}
-                  />
-                </div>
-              </form>
-            </div>
-            <div class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
-              <button
-                type="button"
-                onClick={() => navigate("/1")}
-                class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-primary-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800"
-              >
-                {/* {isVisible && <Addbutton />} */}
-                <svg
-                  class="h-5 w-5 mr-2"
-                  fill="currentColor"
-                  viewbox="0 0 0 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                </form>
+              </div>
+              <div class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
+                <button
+                  type="button"
+                  onClick={() => navigate("/1")}
+                  class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-primary-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    fill-rule="evenodd"
-                    d="M10 6a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                  />
-                </svg>
-                Add product
-              </button>
+                  {/* {isVisible && <Addbutton />} */}
+                  <svg
+                    class="h-5 w-5 mr-2"
+                    fill="currentColor"
+                    viewbox="0 0 0 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      fill-rule="evenodd"
+                      d="M10 6a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                    />
+                  </svg>
+                  Add product
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" class="p-4">
-                <div class="flex items-center">
-                  <input
-                    id="checkbox-all-search"
-                    type="checkbox"
-                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label for="checkbox-all-search" class="sr-only">
-                    checkbox
-                  </label>
-                </div>
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Name
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Tile Type
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Company
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Brand
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Company Price
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Display Price
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Place
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* {submit()} */}
-            {DisplayData}
-          </tbody>
-        </table>
-      </div>
-    </section>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="p-4">
+                  <div class="flex items-center">
+                    <input
+                      id="checkbox-all-search"
+                      type="checkbox"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    />
+                    <label for="checkbox-all-search" class="sr-only">
+                      checkbox
+                    </label>
+                  </div>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Tile Type
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Company
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Brand
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Company Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Display Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Place
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* {submit()} */}
+              {DisplayData}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <FooterBar />
+    </div>
   );
 };
 export default TableData;
