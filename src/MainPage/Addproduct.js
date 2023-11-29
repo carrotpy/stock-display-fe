@@ -223,15 +223,15 @@ const Addbutton = (props) => {
 
               <div>
                 <label
-                  for="Stock"
+                  for="stock"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Stock*
                 </label>
                 <input
                   type="text"
-                  name="postDataApi[Stock]"
-                  id="Stock"
+                  name="postDataApi[stock]"
+                  id="stock"
                   onChange={(e) =>
                     setpostDataApi({
                       ...postDataApi,
