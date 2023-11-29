@@ -229,7 +229,7 @@ const Addbutton = (props) => {
                   Stock*
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   name="postDataApi[stock]"
                   id="stock"
                   onChange={(e) =>
