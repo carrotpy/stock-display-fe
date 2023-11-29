@@ -100,7 +100,6 @@ const Login = () => {
            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight dark:text-white">
            Aravind Eeswar Ceramics
           </h2>
-           
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight dark:text-white">
             Sign in to your account
           </h2>
