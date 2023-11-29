@@ -91,6 +91,7 @@ const TableData = (props) => {
           <td class="px-6 py-4">{info.company_price}</td>
           <td class="px-6 py-4">{info.display_price}</td>
           <td class="px-6 py-4">{info.place}</td>
+          <td class="px-6 py-4">{info.stock}</td>
           <td class="flex items-center px-6 py-4">
             <a
               href="#"
@@ -249,8 +250,12 @@ const TableData = (props) => {
                   Place
                 </th>
                 <th scope="col" class="px-6 py-3">
+                  Stock
+                </th>
+                <th scope="col" class="px-6 py-3">
                   Action
                 </th>
+                
               </tr>
             </thead>
             <tbody>
