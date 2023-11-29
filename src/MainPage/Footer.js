@@ -8,14 +8,8 @@ function FooterBar() {
           <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
             <a href="#" class="hover:underline">
-              Aravindh Eshwar Ceramics™
+              Aravind Eeswar Ceramics™
             </a>
-          </span>
-        </div>
-
-        <div>
-          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-            Made with {"💛"} in Chrompet
           </span>
         </div>
         <div class="text-sm text-gray-500 sm:text-center dark:text-gray-400">

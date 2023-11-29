@@ -24,7 +24,7 @@ const MainTable = () => {
                 class="h-12"
               />
               <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Aravindh Eshwar
+                Aravind Eeswar Ceramics
               </span>
             </a>
             <div class="flex items-center md:order-2 space-x-2 md:space-x-0 rtl:space-x-reverse   rounded-lg focus:ring-10 focus:ring-green-300">
