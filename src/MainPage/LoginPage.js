@@ -100,9 +100,9 @@ const Login = () => {
           <h2 className="text-center text-2xl font-bold leading-9 tracking-tight dark:text-white">
             Aravind Eeswar Ceramics
           </h2>
-          <h2 className="text-center text-2xl font-bold leading-9 tracking-tight dark:text-white">
+          <h1 className="mt-3 text-center text-2xl font-bold leading-9 tracking-tight dark:text-white">
             Sign in to your account
-          </h2>
+          </h1>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

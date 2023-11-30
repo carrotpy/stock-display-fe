@@ -8,7 +8,9 @@ const TableData = (props) => {
   const [getDataApi, setgetData] = useState([]);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState("");
+  const [TableData, setTableData] = useState("");
   const [clickable, setClickable] = useState(false);
+  const [sortkey, setsortkey] = useState(false);
   const navigate = useNavigate();
   const write_permision =
     window.localStorage.getItem("write") === "true" ? true : false;
@@ -30,23 +32,19 @@ const TableData = (props) => {
         }
       });
   };
-  const dataedit = (e, info) => {
-    setLoading(true);
-    // `https://stockdisplaybe2-mp6mtcgm.b4a.run/bin/?name=${info.Name}`
-    fetch(`https://stockdisplaybe2-mp6mtcgm.b4a.run/bin_gbd/?name=${info}`, {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        // setdeleteData(json);
-        setLoading(false);
-        if (json["status"] === "success") {
-          alert(`successfullly deleted ${info}`);
-          window.location.reload(false);
-        } else {
-          alert("Un expected issue please retry");
-        }
+  const handleSorting = (sortField, sortOrder) => {
+    if (sortField) {
+      const sorted = [...getDataApi].sort((a, b) => {
+        return (
+          a["stock"].localeCompare(b["stock"], "en", {
+            numeric: true,
+          }) * (sortOrder === "desc" ? 1 : -1)
+        );
       });
+      console.log(sorted);
+      setgetData(sorted);
+      return sorted;
+    }
   };
 
   const DisplayData = getDataApi
@@ -95,9 +93,15 @@ const TableData = (props) => {
           <td class="flex items-center px-6 py-4">
             <a
               href="#"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              class={`font-medium text-blue-600 dark:text-blue-500 hover:underline ${
+                write_permision ? "null" : "hiddenf"
+              }`}
               id={info.Name}
-              onClick={() => navigate("/editdata", { State: {} })}
+              onClick={(e) => {
+                e.preventDefault();
+                localStorage.setItem("edit_data", JSON.stringify(info));
+                navigate("/editdata");
+              }}
             >
               Edit
             </a>
@@ -249,13 +253,24 @@ const TableData = (props) => {
                 <th scope="col" class="px-6 py-3">
                   Place
                 </th>
-                <th scope="col" class="px-6 py-3">
-                  Stock
+
+                <th scope="col">
+                  <button
+                    class="px-6 py-3"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setsortkey(!sortkey);
+                      let ord = sortkey ? "asc" : "desc";
+                      handleSorting("stock", ord);
+                    }}
+                  >
+                    Stock ⬆️
+                  </button>
                 </th>
-                <th scope="col" class="px-6 py-3">
+
+                <th type="" scope="col" class="px-6 py-3">
                   Action
                 </th>
-                
               </tr>
             </thead>
             <tbody>
