@@ -89,7 +89,7 @@ const Login = () => {
           ```
         */}
       {/* <html class="dark"> */}
-      
+
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 dark:bg-gray-900">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -97,10 +97,10 @@ const Login = () => {
             src="https://img.icons8.com/dusk/64/snowman.png"
             alt="Aravindh Eswhar Ceramics"
           />
-           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight dark:text-white">
-           Aravind Eeswar Ceramics
+          <h2 className="text-center text-2xl font-bold leading-9 tracking-tight dark:text-white">
+            Aravind Eeswar Ceramics
           </h2>
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight dark:text-white">
+          <h2 className="text-center text-2xl font-bold leading-9 tracking-tight dark:text-white">
             Sign in to your account
           </h2>
         </div>
