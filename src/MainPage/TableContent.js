@@ -94,7 +94,7 @@ const TableData = (props) => {
             <a
               href="#"
               class={`font-medium text-blue-600 dark:text-blue-500 hover:underline ${
-                write_permision ? "null" : "hiddenf"
+                write_permision ? "null" : "hidden"
               }`}
               id={info.Name}
               onClick={(e) => {
