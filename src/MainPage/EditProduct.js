@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const Editbutton = (info) => {
-  const [postDataApi, setpostDataApi] = useState(info);
+const Editbutton = () => {
+  const edit_json = JSON.parse(localStorage.getItem("edit_data"));
+  // console.log(edit_json);
+  const [postDataApi, setpostDataApi] = useState(edit_json);
   const [getDataApi, setgetData] = useState({});
   const [loader, setloader] = useState(true);
 
@@ -12,7 +14,7 @@ const Editbutton = (info) => {
   const submit = (e) => {
     e.preventDefault();
     setloader(true);
-    fetch("http://localhost:8001/editdata/", {
+    fetch("https://stockdisplaybe2-mp6mtcgm.b4a.run/addProduct_gdb/", {
       method: "POST",
       body: JSON.stringify(postDataApi),
       headers: { "Content-Type": "application/json" },
@@ -24,9 +26,11 @@ const Editbutton = (info) => {
         //   .then(json => setpostDataApi(json.postDataApi))
         if (json["status"] == "success") {
           alert("successfullly added the product", getDataApi["status"]);
+          window.localStorage.removeItem("edit_data");
           window.location.reload(false);
         } else {
           alert("Un expected issue please retry");
+          window.localStorage.removeItem("edit_data");
           window.location.reload(false);
         }
       });
@@ -43,12 +47,15 @@ const Editbutton = (info) => {
           {/* <!-- Modal header --> */}
           <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-              Add Product
+              Edit Product
             </h3>
             <button
-              onClick={() => navigate("/")}
+              onClick={() => {
+                window.localStorage.removeItem("edit_data");
+                navigate("/");
+              }}
               type="button"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              class="text-gray-400 bg-transparent hover:bg-green-200 hover:text-green-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-green-600 dark:hover:text-white dark:text-white dark:bg-yellow-600"
               data-modal-toggle="defaultModal"
             >
               <svg
@@ -84,7 +91,7 @@ const Editbutton = (info) => {
                   onChange={(e) =>
                     setpostDataApi({ ...postDataApi, Name: e.target.value })
                   }
-                  value={postDataApi.name}
+                  value={postDataApi.Name}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder=""
                   required={true}
@@ -139,7 +146,7 @@ const Editbutton = (info) => {
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   required={true}
                 >
-                  Brand *
+                  Brand*
                 </label>
                 <input
                   type="text"
@@ -220,11 +227,29 @@ const Editbutton = (info) => {
                   required={true}
                 />
               </div>
-
-              {/* <div class="sm:col-span-2">
-                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">compan</label>
-                        <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write product description here"></textarea>                    
-                    </div> */}
+              <div>
+                <label
+                  for="stock"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Stock*
+                </label>
+                <input
+                  type="number"
+                  name="postDataApi[stock]"
+                  id="stock"
+                  onChange={(e) =>
+                    setpostDataApi({
+                      ...postDataApi,
+                      stock: e.target.value,
+                    })
+                  }
+                  value={postDataApi.stock}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder=""
+                  required={true}
+                />
+              </div>
             </div>
             <button
               type="submit"
@@ -242,7 +267,7 @@ const Editbutton = (info) => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              Add new product
+              Edit Product
             </button>
           </form>
         </div>
